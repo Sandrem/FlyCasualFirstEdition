@@ -193,10 +193,6 @@ namespace SquadBuilderNS
                     return FactionSize.Medium8;
                 case Faction.FirstOrder:
                     return FactionSize.Medium6;
-                case Faction.Republic:
-                    return (Mods.ModsManager.Mods[typeof(Mods.ModsList.UnreleasedContentMod)].IsOn) ? FactionSize.Medium8 : FactionSize.Medium6;
-                case Faction.Separatists:
-                    return (Mods.ModsManager.Mods[typeof(Mods.ModsList.UnreleasedContentMod)].IsOn) ? FactionSize.Medium8 : FactionSize.Medium6;
                 default:
                     return FactionSize.Large20;
             }
@@ -674,14 +670,14 @@ namespace SquadBuilderNS
                 contentTransform.localPosition = new Vector3(0, contentTransform.localPosition.y, contentTransform.localPosition.z);
                 contentTransform.GetComponent<RectTransform>().sizeDelta = new Vector2(filteredUpgradesCount * (Edition.Current.UpgradeCardSize.x * 1.5f + DISTANCE_MEDIUM) + 2 * DISTANCE_MEDIUM, 0);
 
-                foreach (UpgradeRecord upgrade in filteredUpgrades)
+                /*foreach (UpgradeRecord upgrade in filteredUpgrades)
                 {
                     if (upgrade.Instance is IVariableCost && Edition.Current is SecondEdition)
                     {
                         (upgrade.Instance as IVariableCost).UpdateCost(CurrentSquadBuilderShip.Instance);
                         if (upgrade.Instance.UpgradeInfo.Cost == int.MaxValue) upgrade.Instance.IsHidden = true;
                     }
-                }
+                }*/
 
                 filteredUpgrades = filteredUpgrades.OrderBy(n => n.Instance.UpgradeInfo.Cost).ToList();
 
@@ -745,11 +741,11 @@ namespace SquadBuilderNS
 
             string upgradeType = AllUpgrades.Find(n => n.UpgradeNameCanonical == upgrade.UpgradeNameCanonical && n.UpgradeType == upgrade.UpgradeType).UpgradeTypeName;
             GenericUpgrade newUpgrade = (GenericUpgrade)System.Activator.CreateInstance(Type.GetType(upgradeType));
-            if (newUpgrade is IVariableCost && Edition.Current is SecondEdition)
+            /*if (newUpgrade is IVariableCost && Edition.Current is SecondEdition)
             {
                 (newUpgrade as IVariableCost).UpdateCost(CurrentSquadBuilderShip.Instance);
                 if (newUpgrade.UpgradeInfo.Cost == int.MaxValue) newUpgrade.IsHidden = true;
-            }
+            }*/
             Edition.Current.AdaptUpgradeToRules(newUpgrade);
 
             UpgradePanelSquadBuilder script = newUpgradePanel.GetComponent<UpgradePanelSquadBuilder>();

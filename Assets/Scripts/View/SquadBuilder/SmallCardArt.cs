@@ -55,37 +55,13 @@ public class SmallCardArt : MonoBehaviour {
         Rect imageRect = new Rect();
         if (imageSource is GenericShip)
         {
-            if (Edition.Current is SecondEdition)
-            {
-                if (!textureIsScaled) TextureScale.Bilinear(newTexture, 503, 700);
-                imageRect = new Rect(0, 0, 503, 205);
-            }
-            else if (Edition.Current is FirstEdition)
-            {
-                if (!textureIsScaled) TextureScale.Bilinear(newTexture, 300, 418);
-                imageRect = new Rect(0, 0, 298, 124);
-            }
+            if (!textureIsScaled) TextureScale.Bilinear(newTexture, 300, 418);
+            imageRect = new Rect(0, 0, 298, 124);
         }
         else if (imageSource is GenericUpgrade)
         {
-            if (Edition.Current is SecondEdition)
-            {
-                if (!textureIsScaled) TextureScale.Bilinear(newTexture, 700, 503);
-
-                if (!(imageSource as GenericUpgrade).HasType(UpgradeType.Configuration))
-                {
-                    imageRect = new Rect(281, 0, 394, 202);
-                }
-                else
-                {
-                    imageRect = new Rect(25, 0, 394, 202);
-                }
-            }
-            else
-            {
-                if (!textureIsScaled) TextureScale.Bilinear(newTexture, 194, 300);
-                imageRect = new Rect(0, 0, 194, 103);
-            }
+            if (!textureIsScaled) TextureScale.Bilinear(newTexture, 194, 300);
+            imageRect = new Rect(0, 0, 194, 103);
         }
         if (!SquadBuilder.TextureCache.ContainsKey(textureCacheKey)) SquadBuilder.TextureCache.Add(textureCacheKey, newTexture);
         Sprite newSprite = Sprite.Create(

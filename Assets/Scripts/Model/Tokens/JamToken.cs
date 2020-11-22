@@ -10,8 +10,8 @@ namespace Tokens
         public JamToken(GenericShip host, Players.GenericPlayer assigner) : base(host)
         {
             Name = "Jam Token";
-            ImageName = (Edition.Current is SecondEdition) ? "Jam Token SE" : "Jam Token FE";
-            Temporary = Edition.Current is SecondEdition;
+            ImageName = "Jam Token FE";
+            Temporary = false;
             TokenColor = TokenColors.Orange;
             PriorityUI = 40;
             Tooltip = "https://raw.githubusercontent.com/guidokessels/xwing-data/master/images/reference-cards/ReloadActionAndJamTokens.png";

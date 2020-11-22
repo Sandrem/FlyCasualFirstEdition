@@ -1,4 +1,7 @@
-﻿using Upgrade;
+﻿using BoardTools;
+using Ship;
+using System.Collections.Generic;
+using Upgrade;
 
 namespace UpgradesList.FirstEdition
 {
@@ -13,5 +16,44 @@ namespace UpgradesList.FirstEdition
                 abilityType: typeof(Abilities.SecondEdition.DeadmansSwitchAbility)
             );
         }        
+    }
+}
+
+namespace Abilities.SecondEdition
+{
+    //After you are destroyed, each other ship at range 0-1 suffers 1 damage.
+    public class DeadmansSwitchAbility : GenericAbility
+    {
+        public override void ActivateAbility()
+        {
+            HostShip.OnShipIsDestroyed += RegisterAbility;
+        }
+
+        public override void DeactivateAbility()
+        {
+            HostShip.OnShipIsDestroyed -= RegisterAbility;
+        }
+
+        private void RegisterAbility(GenericShip ship, bool isFled)
+        {
+            if (!isFled)
+                RegisterAbilityTrigger(TriggerTypes.OnShipIsDestroyed, DealDamage);
+        }
+
+        private void DealDamage(object sender, System.EventArgs e)
+        {
+            List<GenericShip> sufferedShips = new List<GenericShip>();
+
+            foreach (var ship in Roster.AllShips.Values)
+            {
+                if (ship.ShipId == HostShip.ShipId) continue;
+
+                DistanceInfo distInfo = new DistanceInfo(HostShip, ship);
+                if (distInfo.Range < 2) sufferedShips.Add(ship);
+            }
+
+            Messages.ShowInfo("Deadman's Switch deals 1 Hit to " + sufferedShips.Count + " ships");
+            DealDamageToShips(sufferedShips, 1, false, Triggers.FinishTrigger);
+        }
     }
 }

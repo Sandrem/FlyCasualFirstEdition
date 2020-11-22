@@ -22,12 +22,6 @@ namespace BoardTools
         {
             get
             {
-                if (Edition.Current is SecondEdition)
-                {
-                    if (Ship1 == Ship2 || Ship1.ShipsBumped.Contains(Ship2))
-                        return 0;
-                }
-
                 return Mathf.Max(1, Mathf.CeilToInt(DistanceReal / Board.DISTANCE_INTO_RANGE));
             }
         }

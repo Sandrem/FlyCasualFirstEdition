@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DamageDeckCardFE;
-using DamageDeckCardSE;
 using Ship;
 using Players;
 
@@ -28,31 +27,12 @@ namespace CommandsList
             { "thrustcontrolfire",  typeof(DamageDeckCardFE.ThrustControlFire)   },
             { "weaponsfailure",     typeof(DamageDeckCardFE.WeaponsFailure)      }
         };
-        private Dictionary<string, Type> stringToTypeSE = new Dictionary<string, Type>()
-        {
-            { "blindedpilot",       typeof(DamageDeckCardSE.BlindedPilot)        },
-            { "consolefire",        typeof(DamageDeckCardSE.ConsoleFire)         },
-            { "damagedengine",      typeof(DamageDeckCardSE.DamagedEngine)       },
-            { "damagedsensorarray", typeof(DamageDeckCardSE.DamagedSensorArray)  },            
-            { "directhit",          typeof(DamageDeckCardSE.DirectHit)           },
-            { "disabledpowerregulator", typeof(DamageDeckCardSE.DisabledPowerRegulator)},
-            { "fuelleak",           typeof(DamageDeckCardSE.FuelLeak)            },
-            { "hullbreach",         typeof(DamageDeckCardSE.HullBreach)          },
-            { "loosestabilizer",    typeof(DamageDeckCardSE.LooseStabilizer)     },
-            { "panickedpilot",      typeof(DamageDeckCardSE.PanickedPilot)       },
-            { "structuraldamage",   typeof(DamageDeckCardSE.StructuralDamage)    },
-            { "stunnedpilot",       typeof(DamageDeckCardSE.StunnedPilot)        },            
-            { "weaponsfailure",     typeof(DamageDeckCardSE.WeaponsFailure)      },
-            { "woundedpilot",       typeof(DamageDeckCardSE.WoundedPilot)        }
-        };
 
         private Dictionary<string, Type> stringToType
         {
             get
             {
-                return Editions.Edition.Current is Editions.FirstEdition
-                    ? stringToTypeFE
-                    : stringToTypeSE;
+                return stringToTypeFE;
             }
         }
 

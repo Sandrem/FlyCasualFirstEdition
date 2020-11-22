@@ -121,7 +121,7 @@ public class PilotPanelSquadBuilder : MonoBehaviour {
             infoText.text = mod.Name + postfix;
         }
 
-        if (Edition.Current is SecondEdition)
+        /*if (Edition.Current is SecondEdition)
         {
             this.transform.Find("FromModInfo").GetComponent<RectTransform>().localPosition += new Vector3(0, -30, 0);
 
@@ -134,7 +134,7 @@ public class PilotPanelSquadBuilder : MonoBehaviour {
             for (int i = 0; i < CountUpgradeIcons(UpgradeType.ForcePower); i++) slotsText.text += "F";
             if (Ship is Ship.SecondEdition.YT2400LightFreighter.YT2400LightFreighter) for (int i = 0; i < CountUpgradeIcons(UpgradeType.Crew); i++) slotsText.text += "W";
             if (Ship.Faction != Faction.Scum) for (int i = 0; i < CountUpgradeIcons(UpgradeType.Illicit); i++) slotsText.text += "I";
-        }
+        }*/
     }
 
     private int CountUpgradeIcons(UpgradeType upgradeType)

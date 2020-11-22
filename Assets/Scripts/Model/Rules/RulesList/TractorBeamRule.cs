@@ -52,11 +52,11 @@ namespace RulesList
         {
             bool result = true;
 
-            if (Edition.Current is SecondEdition)
+            /*if (Edition.Current is SecondEdition)
             {
                 int tractorBeamTokensCount = ship.Tokens.CountTokensByType(typeof(TractorBeamToken));
                 if (tractorBeamTokensCount > 1) result = false;
-            }
+            }*/
 
             return result;
         }
@@ -96,11 +96,11 @@ namespace RulesList
         {
             bool result = true;
 
-            if (Edition.Current is SecondEdition)
+            /*if (Edition.Current is SecondEdition)
             {
                 int tractorBeamTokensCount = ship.Tokens.CountTokensByType(typeof(TractorBeamToken));
                 if (tractorBeamTokensCount > 0) result = false;
-            }
+            }*/
 
             return result;
         }

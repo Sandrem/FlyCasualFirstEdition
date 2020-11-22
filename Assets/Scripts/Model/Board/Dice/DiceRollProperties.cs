@@ -74,5 +74,5 @@ public partial class DiceRoll
     // View
     public Transform SpawningPoint { get; set; }
     public Transform FinalPositionPoint { get; set; }
-    private bool ShouldSkipToSync() { return (ReplaysManager.Mode == ReplaysMode.Read) || (Network.IsNetworkGame && !Network.IsServer); }
+    private bool ShouldSkipToSync() { return (ReplaysManager.Mode == ReplaysMode.Read); }
 }

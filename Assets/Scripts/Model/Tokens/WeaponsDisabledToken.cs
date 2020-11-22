@@ -11,7 +11,7 @@ namespace Tokens
     {
         public WeaponsDisabledToken(GenericShip host) : base(host)
         {
-            Name = ImageName = (Edition.Current is SecondEdition) ? "Disarm Token" : "Weapons Disabled Token";
+            Name = ImageName = "Weapons Disabled Token";
             Temporary = true;
             PriorityUI = 45;
             TokenColor = TokenColors.Orange;

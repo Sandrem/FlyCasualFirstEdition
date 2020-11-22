@@ -378,11 +378,11 @@ namespace SquadBuilderNS
             string upgradeTypeName = AllUpgrades.Find(n => n.UpgradeNameCanonical == upgradeNameCanonical && n.UpgradeType == upgradeType).UpgradeTypeName;
             GenericUpgrade newUpgrade = (GenericUpgrade)System.Activator.CreateInstance(Type.GetType(upgradeTypeName));
             Edition.Current.AdaptUpgradeToRules(newUpgrade);
-            if (newUpgrade is IVariableCost && Edition.Current is SecondEdition)
+            /*if (newUpgrade is IVariableCost && Edition.Current is SecondEdition)
             {
                 (newUpgrade as IVariableCost).UpdateCost(ship.Instance);
                 if (newUpgrade.UpgradeInfo.Cost == int.MaxValue) newUpgrade.IsHidden = true;
-            }
+            }*/
 
             List<UpgradeSlot> slots = FindFreeSlots(ship, newUpgrade.UpgradeInfo.UpgradeTypes);
             if (slots.Count != 0)
@@ -512,9 +512,9 @@ namespace SquadBuilderNS
                 case "vsAI":
                     SetPlayerTypes(typeof(HumanPlayer), typeof(HotacAiPlayer));
                     break;
-                case "Internet":
+                /*case "Internet":
                     SetPlayerTypes(typeof(HumanPlayer), typeof(NetworkOpponentPlayer));
-                    break;
+                    break;*/
                 case "HotSeat":
                     SetPlayerTypes(typeof(HumanPlayer), typeof(HumanPlayer));
                     break;
@@ -542,7 +542,7 @@ namespace SquadBuilderNS
 
             Console.Write("Network game is started", LogTypes.GameCommands, true, "aqua");
 
-            GameMode.CurrentGameMode = new NetworkGame();
+            /*GameMode.CurrentGameMode = new NetworkGame();*/
             SwitchToBattleScene();
         }
 
@@ -1172,7 +1172,7 @@ namespace SquadBuilderNS
 
         public static bool IsNetworkGame
         {
-            get { return GetSquadList(PlayerNo.Player2).PlayerType == typeof(NetworkOpponentPlayer); }
+            get { return false; }
         }
 
         public static bool IsVsAiGame
@@ -1261,11 +1261,12 @@ namespace SquadBuilderNS
             Type playerOneType = GetSquadList(PlayerNo.Player1).PlayerType;
             Type playerTwoType = GetSquadList(PlayerNo.Player2).PlayerType;
 
-            if (playerOneType == typeof(HumanPlayer) && playerTwoType == typeof(NetworkOpponentPlayer))
+            /*if (playerOneType == typeof(HumanPlayer) && playerTwoType == typeof(NetworkOpponentPlayer))
             {
                 if (playerNo == PlayerNo.Player1) return "My Squadron";
             }
-            else if (playerOneType == typeof(HumanPlayer) && playerTwoType == typeof(HumanPlayer))
+            else*/
+            if (playerOneType == typeof(HumanPlayer) && playerTwoType == typeof(HumanPlayer))
             {
                 if (playerNo == PlayerNo.Player1) return "Squadron of Player 1"; else return "Squadron of Player 2";
             }
@@ -1436,7 +1437,7 @@ namespace SquadBuilderNS
 
         public static void PrepareOnlineMatchLists(int playerInt, string playerName, string title, string avatar, string squadString)
         {
-            PlayerNo playerNo = Tools.IntToPlayer(playerInt);
+            /*PlayerNo playerNo = Tools.IntToPlayer(playerInt);
             SquadList squadList = GetSquadList(playerNo);
 
             if (Network.IsServer)
@@ -1461,7 +1462,7 @@ namespace SquadBuilderNS
             playerInfoJson.AddField("NickName", playerName);
             playerInfoJson.AddField("Title", title);
             playerInfoJson.AddField("Avatar", avatar);
-            squadList.SavedConfiguration.AddField("PlayerInfo", playerInfoJson);
+            squadList.SavedConfiguration.AddField("PlayerInfo", playerInfoJson);*/
         }
     }
 }

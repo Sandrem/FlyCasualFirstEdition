@@ -38,7 +38,7 @@ public class BrowseNetworkRoomsUI : MonoBehaviour
 
     private void ShowListofRooms()
     {
-        int roomsCount = 1;
+        /*int roomsCount = 1;
 
         RectTransform parentRect = RoomListPanel.transform.GetComponent<RectTransform>();
         parentRect.sizeDelta = new Vector2(parentRect.sizeDelta.x, 120f * (roomsCount) + 20f);
@@ -53,7 +53,7 @@ public class BrowseNetworkRoomsUI : MonoBehaviour
             newRoom.GetComponentInChildren<Button>().onClick.AddListener(
                 delegate { Network.JoinRoom(null);
             });
-        }
+        }*/
     }
 
     public void ShowNoRooms()

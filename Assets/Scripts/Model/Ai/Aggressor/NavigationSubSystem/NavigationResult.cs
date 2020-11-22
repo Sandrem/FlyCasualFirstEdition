@@ -52,18 +52,6 @@ namespace AI.Aggressor
 
             if (isBumped) Priority -= 500;
 
-            if (Selection.ThisShip.Damage.HasCrit(typeof(DamageDeckCardSE.LooseStabilizer)) && movement.Bearing != ManeuverBearing.Straight)
-            {
-                if (Selection.ThisShip.State.HullCurrent + Selection.ThisShip.State.ShieldsCurrent == 1)
-                {
-                    Priority -= 20000;
-                }
-                else
-                {
-                    Priority -= 1000;
-                }
-            }
-
             switch (movement.ColorComplexity)
             {
                 case MovementComplexity.Easy:

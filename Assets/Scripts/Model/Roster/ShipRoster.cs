@@ -34,7 +34,7 @@ public static partial class Roster
     {
         PlayerNo playerNo = PlayerNo.Player2;
 
-        if (Network.IsNetworkGame && !Network.IsServer) playerNo = PlayerNo.Player1;
+        //if (Network.IsNetworkGame && !Network.IsServer) playerNo = PlayerNo.Player1;
 
         return GetPlayer(playerNo);
     }
@@ -43,7 +43,7 @@ public static partial class Roster
     {
         PlayerNo playerNo = PlayerNo.Player1;
 
-        if (Network.IsNetworkGame && !Network.IsServer) playerNo = PlayerNo.Player2;
+        //if (Network.IsNetworkGame && !Network.IsServer) playerNo = PlayerNo.Player2;
 
         return GetPlayer(playerNo);
     }

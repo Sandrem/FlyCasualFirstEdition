@@ -131,15 +131,15 @@ public partial class MainMenu : MonoBehaviour {
         ReplaysManager.TryInitialize(ReplaysMode.Write);
         Console.Write("Network game is prepared", LogTypes.GameCommands, true, "aqua");
 
-        Network.CreateMatch(roomName, password);
+        //Network.CreateMatch(roomName, password);
 
         ChangePanel("WaitingForOpponentsPanel");
     }
 
     public void JoinRoomByIp(Text ipText)
     {
-        Network.ServerUri = "tcp4://" + ipText.text;
-        Network.JoinRoom(null);
+        //Network.ServerUri = "tcp4://" + ipText.text;
+        //Network.JoinRoom(null);
     }
 
     public void BrowseMatches()
@@ -150,7 +150,7 @@ public partial class MainMenu : MonoBehaviour {
     private IEnumerator BrowseMatchesAsync()
     {
         BrowseNetworkRoomsUI.Instance.ShowLoading();
-        Network.BrowseMatches();
+        //Network.BrowseMatches();
 
         yield return new WaitForSeconds(3);
 
@@ -161,12 +161,12 @@ public partial class MainMenu : MonoBehaviour {
     {
         //Messages.ShowInfo("Joining room...");
         string password = panel.transform.Find("Password").GetComponentInChildren<InputField>().text;
-        Network.JoinRoom(password);
+        //Network.JoinRoom(password);
     }
 
     public void CancelWaitingForOpponent()
     {
-        Network.CancelWaitingForOpponent();
+        //Network.CancelWaitingForOpponent();
         ChangePanel("MultiplayerDecisionPanel");
     }
 

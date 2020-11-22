@@ -98,7 +98,7 @@ public class UI : MonoBehaviour {
     {
         GameObject gameResultsPanel = GameObject.Find("UI").transform.Find("GameResultsPanel").gameObject;
         gameResultsPanel.transform.Find("Panel").transform.Find("Congratulations").GetComponent<Text>().text = results;
-        gameResultsPanel.transform.Find("Panel").Find("Restart").gameObject.SetActive(!(GameMode.CurrentGameMode is NetworkGame));
+        gameResultsPanel.transform.Find("Panel").Find("Restart").gameObject.SetActive(true);
 
         RectTransform rectTransform = gameResultsPanel.transform.Find("Panel").GetComponent<RectTransform>();
         rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, 350);
@@ -109,7 +109,7 @@ public class UI : MonoBehaviour {
     public static void ToggleInGameMenu()
     {
         GameObject gameResultsPanel = GameObject.Find("UI").transform.Find("GameResultsPanel").gameObject;
-        gameResultsPanel.transform.Find("Panel").Find("Restart").gameObject.SetActive(!(GameMode.CurrentGameMode is NetworkGame));
+        gameResultsPanel.transform.Find("Panel").Find("Restart").gameObject.SetActive(true);
 
         RectTransform rectTransform = gameResultsPanel.transform.Find("Panel").GetComponent<RectTransform>();
         rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, 170);

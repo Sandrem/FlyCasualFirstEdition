@@ -87,7 +87,6 @@ namespace SubPhases
 
         private int HasTokenPriority(GenericShip ship)
         {
-            if (Edition.Current is Editions.SecondEdition && (ship.Tokens.HasToken(typeof(ReinforceAftToken)) || ship.Tokens.HasToken(typeof(ReinforceForeToken)))) return 110;
             if (ship.Tokens.HasToken(typeof(FocusToken))) return 100;
             if (ship.ActionBar.HasAction(typeof(EvadeAction)) || ship.Tokens.HasToken(typeof(EvadeToken))) return 50;
             if (ship.ActionBar.HasAction(typeof(TargetLockAction)) || ship.Tokens.HasToken(typeof(BlueTargetLockToken), '*')) return 50;

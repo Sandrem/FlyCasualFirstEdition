@@ -228,24 +228,23 @@ namespace SubPhases
         public override bool AnotherShipCanBeSelected(GenericShip targetShip, int mouseKeyIsPressed)
         {
             bool result = false;
-            if (Roster.GetPlayer(RequiredPlayer).GetType() != typeof(Players.NetworkOpponentPlayer))
+
+            if (Selection.ThisShip != null)
             {
-                if (Selection.ThisShip != null)
+                if (targetShip.Owner.PlayerNo != Phases.CurrentSubPhase.RequiredPlayer)
                 {
-                    if (targetShip.Owner.PlayerNo != Phases.CurrentSubPhase.RequiredPlayer)
-                    {
-                        result = true;
-                    }
-                    else
-                    {
-                        Messages.ShowErrorToHuman(targetShip.PilotInfo.PilotName + " cannot be selected as a target, it is a friendly ship");
-                    }
+                    result = true;
                 }
                 else
                 {
-                    Messages.ShowErrorToHuman(targetShip.PilotInfo.PilotName + " cannot be selected as a target, first select the attacking ship");
+                    Messages.ShowErrorToHuman(targetShip.PilotInfo.PilotName + " cannot be selected as a target, it is a friendly ship");
                 }
             }
+            else
+            {
+                Messages.ShowErrorToHuman(targetShip.PilotInfo.PilotName + " cannot be selected as a target, first select the attacking ship");
+            }
+
             return result;
         }
 

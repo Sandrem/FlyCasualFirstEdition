@@ -70,16 +70,6 @@ namespace Obstacles
                 );
             }
 
-            for (int i = 1; i < 7; i++)
-            {
-                Instance.AllPossibleObstacles.Add(
-                    new GasCloud(
-                        "Gas Cloud " + i,
-                        "gascloud" + i
-                    )
-                );
-            }
-
             Instance.AllPossibleObstacles = Instance.AllPossibleObstacles.OrderBy(n => n.Name).ToList();
         }
 

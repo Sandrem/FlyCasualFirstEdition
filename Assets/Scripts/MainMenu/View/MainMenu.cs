@@ -175,17 +175,7 @@ public partial class MainMenu : MonoBehaviour {
         Options.Edition = editionName;
         Options.ChangeParameterValue("Edition", editionName);
 
-        switch (editionName)
-        {
-            case "FirstEdition":
-                new FirstEdition();
-                break;
-            case "SecondEdition":
-                new SecondEdition();
-                break;
-            default:
-                break;
-        }
+        new FirstEdition();
     }
 
     public void PreviousPanel()

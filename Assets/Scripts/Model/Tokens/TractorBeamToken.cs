@@ -13,7 +13,7 @@ namespace Tokens
         public TractorBeamToken(GenericShip host, Players.GenericPlayer assigner) : base(host)
         {
             Name = "Tractor Beam Token";
-            ImageName = (Edition.Current is SecondEdition) ? "Tractor Beam Token SE" : "Tractor Beam Token FE";
+            ImageName = "Tractor Beam Token FE";
             Temporary = true;
             TokenColor = TokenColors.Orange;
             PriorityUI = 40;

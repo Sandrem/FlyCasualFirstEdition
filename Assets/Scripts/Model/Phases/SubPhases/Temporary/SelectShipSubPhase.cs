@@ -190,32 +190,30 @@ namespace SubPhases
         {
             bool result = false;
 
-            if (Roster.GetPlayer(RequiredPlayer).GetType() != typeof(NetworkOpponentPlayer))
+            if (mouseKeyIsPressed == 1)
             {
-                if (mouseKeyIsPressed == 1)
+                if (FilterShipTargets(anotherShip))
                 {
-                    if (FilterShipTargets(anotherShip))
-                    {
-                        SendSelectShipCommand(anotherShip);
-                    }
-                    else
-                    {
-                        Messages.ShowErrorToHuman("You cannot select this enemy ship");
-                        Selection.ThisShip.CallActionTargetIsWrong(HostAction, anotherShip, CancelShipSelection);
-                    }
+                    SendSelectShipCommand(anotherShip);
                 }
-                else if (mouseKeyIsPressed == 2)
+                else
                 {
-                    if (CanMeasureRangeBeforeSelection)
-                    {
-                        ActionsHolder.GetRangeAndShow(Selection.ThisShip, anotherShip);
-                    }
-                    else
-                    {
-                        Messages.ShowError("You cannot measure range before selecting another ship");
-                    }
+                    Messages.ShowErrorToHuman("You cannot select this enemy ship");
+                    Selection.ThisShip.CallActionTargetIsWrong(HostAction, anotherShip, CancelShipSelection);
                 }
             }
+            else if (mouseKeyIsPressed == 2)
+            {
+                if (CanMeasureRangeBeforeSelection)
+                {
+                    ActionsHolder.GetRangeAndShow(Selection.ThisShip, anotherShip);
+                }
+                else
+                {
+                    Messages.ShowError("You cannot measure range before selecting another ship");
+                }
+            }
+
             return result;
         }
 

@@ -24,11 +24,35 @@ namespace Tokens
         }
     }
 
+    public class BlindedPilotOldCritToken : CritToken
+    {
+        public BlindedPilotOldCritToken(GenericShip host) : base(host)
+        {
+            Tooltip = "https://raw.githubusercontent.com/guidokessels/xwing-data/master/images/damage-decks/core/blinded-pilot.png";
+        }
+    }
+
     public class ConsoleFireCritToken : CritToken
     {
         public ConsoleFireCritToken(GenericShip host) : base(host)
         {
             Tooltip = "http://i.imgur.com/RwtlPpG.jpg";
+        }
+    }
+
+    public class MinorHullBreachCritToken : CritToken
+    {
+        public MinorHullBreachCritToken(GenericShip host) : base(host)
+        {
+            Tooltip = "https://raw.githubusercontent.com/guidokessels/xwing-data/master/images/damage-decks/core/minor-hull-breach.png";
+        }
+    }
+
+    public class InjuredPilotCritToken : CritToken
+    {
+        public InjuredPilotCritToken(GenericShip host) : base(host)
+        {
+            Tooltip = "https://raw.githubusercontent.com/guidokessels/xwing-data/master/images/damage-decks/core/injured-pilot.png";
         }
     }
 
@@ -61,6 +85,14 @@ namespace Tokens
         public DamagedSensorArrayCritToken(GenericShip host) : base(host)
         {
             Tooltip = "https://vignette1.wikia.nocookie.net/xwing-miniatures/images/6/61/Damaged-sensor-array.png";
+        }
+    }
+
+    public class DamagedSensorArrayOldCritToken : CritToken
+    {
+        public DamagedSensorArrayOldCritToken(GenericShip host) : base(host)
+        {
+            Tooltip = "https://raw.githubusercontent.com/guidokessels/xwing-data/master/images/damage-decks/core/damaged-sensor-array.png";
         }
     }
 
@@ -115,6 +147,14 @@ namespace Tokens
     public class WeaponsFailureCritToken : CritToken
     {
         public WeaponsFailureCritToken(GenericShip host) : base(host)
+        {
+            Tooltip = "https://vignette3.wikia.nocookie.net/xwing-miniatures/images/7/76/Swx36-weapons-failure.png";
+        }
+    }
+
+    public class WeaponsMalfunctionCritToken : CritToken
+    {
+        public WeaponsMalfunctionCritToken(GenericShip host) : base(host)
         {
             Tooltip = "https://vignette3.wikia.nocookie.net/xwing-miniatures/images/7/76/Swx36-weapons-failure.png";
         }

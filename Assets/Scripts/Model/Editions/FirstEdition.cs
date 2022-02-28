@@ -33,26 +33,52 @@ namespace Editions
         public override Vector2 UpgradeCardCompactOffset { get { return Vector2.zero; } }
         public override Vector2 UpgradeCardCompactSize { get { return UpgradeCardSize; } }
 
-        public override Dictionary<Type, int> DamageDeckContent {
+        public override Dictionary<Type, int> DamageDeckContent
+        {
             get
             {
-                return new Dictionary<Type, int>()
+                if (DebugManager.OldDamageDeck)
                 {
-                    { typeof(DamageDeckCardFE.DirectHit),           7 },
-                    { typeof(DamageDeckCardFE.BlindedPilot),        2 },
-                    { typeof(DamageDeckCardFE.DamagedCockpit),      2 },
-                    { typeof(DamageDeckCardFE.DamagedEngine),       2 },
-                    { typeof(DamageDeckCardFE.DamagedSensorArray),  2 },
-                    { typeof(DamageDeckCardFE.LooseStabilizer),     2 },
-                    { typeof(DamageDeckCardFE.MajorHullBreach),     2 },
-                    { typeof(DamageDeckCardFE.ShakenPilot),         2 },
-                    { typeof(DamageDeckCardFE.StructuralDamage),    2 },
-                    { typeof(DamageDeckCardFE.ThrustControlFire),   2 },
-                    { typeof(DamageDeckCardFE.WeaponsFailure),      2 },
-                    { typeof(DamageDeckCardFE.ConsoleFire),         2 },
-                    { typeof(DamageDeckCardFE.StunnedPilot),        2 },
-                    { typeof(DamageDeckCardFE.MajorExplosion),      2 }
-                };
+                    return new Dictionary<Type, int>()
+                    {
+                        { typeof(DamageDeckCardFE.DirectHit), 7 },
+                        { typeof(DamageDeckCardFE.BlindedPilotOld), 2 },
+                        { typeof(DamageDeckCardFE.DamagedCockpit), 2 },
+                        { typeof(DamageDeckCardFE.DamagedEngine), 2 },
+                        { typeof(DamageDeckCardFE.DamagedSensorArrayOld), 2 },
+                        { typeof(DamageDeckCardFE.InjuredPilot), 2 },
+                        { typeof(DamageDeckCardFE.MinorExplosion), 2 },
+                        { typeof(DamageDeckCardFE.MunitionsFailure), 2 },
+                        { typeof(DamageDeckCardFE.StructuralDamage), 2 },
+                        { typeof(DamageDeckCardFE.ThrustControlFire), 2 },
+                        { typeof(DamageDeckCardFE.WeaponMalfunction), 2 },
+                        { typeof(DamageDeckCardFE.ConsoleFire), 2 },
+                        { typeof(DamageDeckCardFE.StunnedPilot), 2 },
+                        { typeof(DamageDeckCardFE.MinorHullBreach), 2 },
+                        { typeof(DamageDeckCardFE.MajorExplosion), 2 }
+                    };
+                }
+                else
+                {
+                    return new Dictionary<Type, int>()
+                    {
+                        { typeof(DamageDeckCardFE.DirectHit),           7 },
+                        { typeof(DamageDeckCardFE.BlindedPilot),        2 },
+                        { typeof(DamageDeckCardFE.DamagedCockpit),      2 },
+                        { typeof(DamageDeckCardFE.DamagedEngine),       2 },
+                        { typeof(DamageDeckCardFE.DamagedSensorArray),  2 },
+                        { typeof(DamageDeckCardFE.LooseStabilizer),     2 },
+                        { typeof(DamageDeckCardFE.MajorHullBreach),     2 },
+                        { typeof(DamageDeckCardFE.ShakenPilot),         2 },
+                        { typeof(DamageDeckCardFE.StructuralDamage),    2 },
+                        { typeof(DamageDeckCardFE.ThrustControlFire),   2 },
+                        { typeof(DamageDeckCardFE.WeaponsFailure),      2 },
+                        { typeof(DamageDeckCardFE.ConsoleFire),         2 },
+                        { typeof(DamageDeckCardFE.StunnedPilot),        2 },
+                        { typeof(DamageDeckCardFE.MajorHullBreach),     2 },
+                        { typeof(DamageDeckCardFE.MajorExplosion),      2 }
+                    };
+                }
             }
         }
 

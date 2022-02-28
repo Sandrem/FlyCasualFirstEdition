@@ -30,6 +30,7 @@ public static class DebugManager
     public static bool DebugMovementShowPlanning; // = true;
 
     public static bool FreeMode;
+    public static bool OldDamageDeck;
 
     public static bool ManualCollisionPrediction;
 

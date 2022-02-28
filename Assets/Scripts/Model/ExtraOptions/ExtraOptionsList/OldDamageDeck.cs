@@ -7,7 +7,7 @@
             public OldDamageDeckExtraOption()
             {
                 Name = "Old Damage Deck";
-                Description = "Use origianl core set damage deck instead of Force Awakens damage deck.";
+                Description = "Use Original Core Set damage deck instead of Force Awakens Core Set damage deck.";
             }
 
             protected override void Activate()
